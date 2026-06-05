@@ -151,6 +151,30 @@ body{
   background: transparent;
   color: #0F6E56;
   border: 1.5px solid #1D9E75;
+}
+
+/* Semua elemen lazy — awalnya tersembunyi */
+.lazy {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+
+/* Saat masuk layar */
+.lazy.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger otomatis berdasarkan urutan */
+.lazy:nth-child(1) { transition-delay: 0s; }
+.lazy:nth-child(2) { transition-delay: 0.08s; }
+.lazy:nth-child(3) { transition-delay: 0.16s; }
+.lazy:nth-child(4) { transition-delay: 0.24s; }
+.lazy:nth-child(5) { transition-delay: 0.32s; }
+.lazy:nth-child(6) { transition-delay: 0.40s; }
+
 /* SECTION */
 
 section{
@@ -212,3 +236,4 @@ footer{
     font-size:18px;
     font-weight:600;
 }
+
